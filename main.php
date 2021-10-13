@@ -4,11 +4,11 @@
     <link rel="stylesheet"  href="style.css">
 </head>
 <body>
-Witaj na blogu!<br/>
-
-<a href="add.php">Kliknij aby dodać wpis.
-</a>
-
+<h1>Witaj na blogu!</h1>
+<a href="add.php" id="a1"><div id="block"><p id="block1">Kliknij aby dodać wpis.</p></div></a>
+<h1>WPISY</h1>
+<p id="old_nr" style="display:none"></p>
+<p id="new_nr" style="display:none"></p>
 <?php
 class Wpisy
 {
@@ -20,7 +20,7 @@ class Wpisy
         echo '<table>';
         while($obj=$result->fetch_object())
         {
-            echo '<tr><td>'.$obj->temat.'</td><td>'.$obj->text.'</td></tr>';
+            echo '<tr><td>'.$obj->Nick.'</td><td>'.$obj->temat.'</td><td>'.$obj->text.'</td></tr>';
         }
         echo '</table>';
     }
