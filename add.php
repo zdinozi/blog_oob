@@ -4,28 +4,32 @@
     <link rel="stylesheet"  href="style.css">
 </head>
 <body>
+<div id="obramowka">
 <h1>DODAJ WPIS</h1>
 <form action="" method="post">
     <table>
-    <center><tr><td>Nick:</td><td><input type="text" name="nick" id="i1" maxlength="255"></td></tr>
         <tr><td>Temat:</td><td><input type="text" name="temat" id="i1" maxlength="255"></td></tr>
         <tr><td>Wiadomosc: </td><td><textarea name="wpis" id="i2" maxlength="255"></textarea></td></tr>
-        </table></center><br/>
-    <center><input type="submit" value="Dodaj"></center>
+        <tr><td></td><td><input type="submit" value="Dodaj"></td></tr>
+    </table>
 </form>
-
+<p id="powrot" style="text-align: center;"><a href="logowanie.php">Powrót do strony głównej.</a></p>
+</div>
+</body>
 <?php
+    include 'test.php';
     class Wpis
     {
         public $wpis;
         public $temat;
         public $nick;
 
-        public function __construct($wpis,$temat,$nick)
+        public function __construct($a,$b,$c)
         {
-            $this->wpis=$wpis;
-            $this->temat=$temat;
-            $this->nick=$nick;
+            $this->wpis=$a;
+            $this->temat=$b;
+            $this->nick=$c;
+
             if ($this->nick=='')
             {
                 $this->nick='Anonim';
@@ -36,32 +40,30 @@
 
             }
         }
-        public function dodaj($add)
+        public function dodaj()
         {
             $conn=new mysqli('localhost','root','','Blog_obiektowo') or die ('Nie udało się połączyć z bazą danych.');
             $conn->set_charset("utf8");
-            $q = "INSERT INTO wpisy VALUES (NULL,'$add->nick','$add->temat','$add->wpis')";
+            $q = "INSERT INTO wpisy VALUES (NULL,'$this->nick','$this->temat','$this->wpis')";
             $result = $conn->query($q) or die ("Błąd");
         }
         public function czy_puste()
         {
-
+            if(empty($_POST['wpis'])) return 0;
+            else return 1;
         }
-
     }
-            if(!empty($_POST['wpis']))
-            {
-                $dodaj = new Wpis($_POST['wpis'], $_POST['temat'], $_POST['nick']);
-                $dodaj->dodaj($dodaj);
-                header('Location: main.php');
-                exit();
-            }
-            else{
-                echo '<p style="text-align: center;">Porszę podać dane.</p>';
-            }
+
+        $dodaj = new Wpis($_POST['wpis'], $_POST['temat'], $_SESSION['user']);
+
+        if($dodaj->czy_puste()==1) {
+
+            $dodaj->dodaj();
+            if ($_SESSION['start']==1) header('Location: logowanie.php');
+            else header('Location: main.php');
+        }
+        else exit();
 
 
 ?>
-<p id="powrot" style="text-align: center;"><a href="main.php">Powrót do strony głównej.</a></p>
-</body>
 </html>

@@ -5,23 +5,28 @@
 </head>
 <body>
 <h1>Witaj na blogu!</h1>
-<div id="log"><center>
-        <a href="login.php" id="logowanie_a">
-            <p id="logowanie">Zaloguj się</p>
+<center><div id="zalogowano">
+    <p>Zalogowano jako: <?php
+        include 'test.php';
+        echo $_SESSION['user'];
+        ?></p>
+</div></center>
+<div id="wyl"><center>
+        <a href="wyloguj.php" id="wyloguj_a">
+            <p id="wyloguj">Wyloguj się</p>
         </a>
     </center></div>
-<div id="rej"><center>
-        <a href="rejestracja.php" id="rejestracja_a">
-            <p id="rejestracja">Zarejestruj się</p>
-        </a>
-    </center></div>
+<div id="wpi">
+    <a href="add.php" id="a1">
+        <div id="block">
+            <p id="block1" >Kliknij aby dodać wpis.</p>
+        </div>
+    </a>
+</div>
 <h1>WPISY</h1>
-<p style="text-align:center;">Aby dodawać wpisy musisz się zalogować.</p>
 <p id="old_nr" style="display:none"></p>
 <p id="new_nr" style="display:none"></p>
 <?php
-include 'config.php';
-
 class Wpisy
 {
     public function wypisz(){
