@@ -2,6 +2,9 @@ body{
     background-color: white;
     margin: 0;
     font-family: arial;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
 }
 a{
     text-decoration: none;
@@ -30,42 +33,26 @@ h1{
     padding: 5px;
     height: 150px;
 }
-#m-table tr{
-
-}
-#m-table tr:first-child td:first-child{
-    border-top-left-radius: 30%;
-}
-#m-table tr:first-child td:last-child{
-    border-right-radius: 30%;
-}
-
-#m-table tr:last-child td:first-child{
-    border-bottom-left-radius: 10%;
-}
-
-#m-table tr:last-child td:last-child{
-    border-bottom-right-radius: 10%;
-}
 #m-table tr:nth-child(2n+1) {
-    background: #ccc;
+    background-color: #24292f;
     padding: 9px;
+    color: white;
 }
 #m-table tr:nth-child(2n) {
-    background: dimgrey;
+    background-color: #703232;
     padding: 9px;
+    color: white;
 }
 #block{
-    display: block;
+    display: inline-block;
     width: 100%;
-    background-color: ghostwhite;
+    background-color: #703232;
     text-align: center;
-
+    height: 100px;
 }
 #block1
 {
     padding: 30px;
-
 }
 #block:hover{
     background-color: dimgrey;
@@ -83,70 +70,77 @@ h1{
     font-size: 20px;
 
 }
-#logowanie{
-    text-align: center;
-    border: 1px solid black;
-    display: block;
-    width: 100;
-    padding: 30px;
-    border-radius: 20%;
-
-}
-
-#logowanie:hover{
-    background-color: darkred;
-    border:1px solid darkred;
-    transition: 2s;
-    color:white;
-    border-radius: 30%;
-}
 #logowanie_a{
+    margin-right: auto;
+    margin-left: auto;
     text-decoration: none;
-    color:black;
-
-}
-#rejestracja{
-    text-align: center;
-    border: 1px solid black;
+    color: white;
     display: block;
-    width: 100;
-    padding: 30px;
-    border-radius: 20%;
+    width: 150px;
+    height: 50px;
+    background-color: #703232;
+    border: 2px solid white;
 
-}
-
-#rejestracja:hover{
-    background-color: darkred;
-    border:1px solid darkred;
-    transition: 2s;
-    color:white;
-    border-radius: 30%;
 }
 #rejestracja_a{
+    margin-right: auto;
+    margin-left: auto;
     text-decoration: none;
-    color:black;
+    color: white;
+    display: block;
+    width: 150px;
+    height: 50px;
+    background-color: #703232;
+    border: 2px solid white;
 
+}
+#add_wpis{
+    width: 100%;
+    height: 100px;
+    background-color: #24292f;
+    color:white;
+
+}
+#add_form
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:30px;
+}
+#main-welcome{
+    flex-direction: row-reverse;
 }
 #log{
     width: 50%;
-    float: left;
-    background-color: ghostwhite;
+    height: 100px;
+    float:left;
+    margin-left: auto;
+    background-color: #24292f;
+    color: white;
+    text-align: center;
 }
 #rej{
+    text-align: center;
+    color: white;
+    background-color: #24292f;
     width: 50%;
     float:left;
-    background-color: ghostwhite;
+    height: 100px;
+    margin-right: auto;
 }
 #wpi{
     clear:both;
 }
-#zalogowano{
-    width: 50%;
-    float:left;
-}
 #wyl{
-    float:left;
-    width: 50%;
+    width: 100%;
+    background-color: #24292f;
+    height: 100px;
+    font-size: 30px;
+    display: inline-block;
+}
+#wyl:hover{
+    background-color: #2A3B34;
+    transition: 2s;
 }
 #wyloguj{
      text-align: center;
@@ -175,23 +169,10 @@ h1{
     margin-left:auto;
     margin-right: auto;
 }
-#obramowka{
-    margin-top: 3%;
-    padding: 20px;
-    width: 35%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 20%;
-    background: dimgrey;
-}
 #l-table{
-    margin-top: 3%;
-    padding: 20px;
-    width: 35%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 20%;
-    background: dimgrey;
+    width: 100%;
+    background-color:#703232;
+    color:white;
 }
 #l-table table{
     margin-left:25%;
@@ -201,13 +182,12 @@ h1{
     margin-left: 25%;
 }
 #r-form{
-    margin-top: 3%;
-    padding: 20px;
-    width: 35%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 20%;
-    background: dimgrey;
+    background-color: #703232;
+    height: 100px;
+    color:white
 }
 #r-form table{
     margin-left:25%;
@@ -215,4 +195,50 @@ h1{
 }
 #r-form a{
     margin-left: 25%;
+}
+#lll
+{
+    color:blue;
+}
+#r-form-table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+#l-table-form{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+footer{
+    width: 100%;
+    /*background-color: #071419;*/
+    background-color: #24292f;
+    clear: both;
+    height: 200px;
+    margin-top: auto;
+}
+.submit1{
+    background-color: #703232;
+    color:white;
+    border: 2px solid #703232;
+    padding: 5px;
+    cursor: pointer;
+}
+#main-welcome{
+    width: 100%;
+    background-color: #703232;
+    color:white;
+}
+.submit2
+{
+    background-color: #24292f;
+    color:white;
+    border: 2px solid #24292f;
+    padding: 5px;
+    cursor: pointer;
+}
+#powrot:hover{
+    color:#703232;
+    transition: 2s;
 }
