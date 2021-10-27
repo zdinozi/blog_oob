@@ -51,7 +51,7 @@ class Logowanie
             header('Location: logowanie.php');
         }
         else{
-            echo 'nie udalo sie zalogowac';
+            echo '<b><p style="text-align: center;">Nie udalo sie zalogowac</p></b>';
 
         }
     }

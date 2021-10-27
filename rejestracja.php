@@ -39,8 +39,7 @@ class Register
         }
         else
         {
-            echo 'Podane dane nie zgadzają się.';
-            exit();
+            echo '<span style="text-align:center;"><b>Podane dane nie zgadzają się.</b></span>';
         }
     }
     public function db_add()
@@ -48,7 +47,7 @@ class Register
         global $conn;
         $q='INSERT INTO uzytkownicy VALUES (NULL,"'.$this->login.'","'.$this->pass.'","'.$this->email.'","'.$this->ip.'")';
         $conn->query($q) or die ('Wystąpił błąd przy wykonaniu kwerendy.');
-        echo 'Dodano do bazy.';
+        echo '<span style="text-align: center;"><b>Dodano do bazy.</b></span>';
     }
     public function db_add_auth()
     {
@@ -58,17 +57,16 @@ class Register
         }
         else return 1;
 
-        echo ' jestem tutaj';
     }
 
 }
     if(!empty($_POST['login']) && !empty($_POST['pass']) && !empty($_POST['passw']) && !empty($_POST['email']) && !empty($_POST['emailv'])) {
         $o1 = new Register($_POST['login'], $_POST['pass'], $_POST['passw'], $_POST['email'], $_POST['emailv'], $_SERVER['REMOTE_ADDR']);
         if ($o1->db_add_auth() == 1) $o1->db_add();
-        else exit('<h4 style="text-align: center;">Proszę podać poprawne dane.</h4>');
+        else echo('<span style="text-align: center;"><b>Proszę podać poprawne dane.</b></span>');
     }
     else{
-        echo '<span style="text-align: center;">Proszę uzupełnić dane.</span>';
+        echo '<span style="text-align: center;"><b>Proszę uzupełnić dane.</b></span>';
     }
 ?>
 
