@@ -9,9 +9,9 @@
 <div id="r-form-table">
 <form action="" method="post">
     <table>
-        <tr><td>Login: </td><td><input type="text" name="login"></td></tr>
-        <tr><td>Hasło: </td><td><input type="password" name="pass"></td></tr>
-        <tr><td>Powtórz hasło: </td><td><input type="password" name="passw"></td></tr>
+        <tr><td>Login: </td><td><input type="text" name="login" pattern="{3,}" title="Must contain 3 or more characters"></td></tr>
+        <tr><td>Hasło: </td><td><input type="password" name="pass" pattern="([A-Za-z0-9]){6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"></td></tr>
+        <tr><td>Powtórz hasło: </td><td><input type="password" name="passw" pattern="([A-Za-z0-9]){6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"></td></tr>
         <tr><td>Email: </td><td><input type="email" name="email"></td></tr>
         <tr><td>Potwórz Email: </td><td><input type="email" name="emailv"></td></tr>
         <tr><td></td><td><input type="submit" class="submit1"></td></tr>
